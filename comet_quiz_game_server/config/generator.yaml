@@ -1,0 +1,3 @@
+type: server
+
+client_package_path: ../comet_quiz_game_client
