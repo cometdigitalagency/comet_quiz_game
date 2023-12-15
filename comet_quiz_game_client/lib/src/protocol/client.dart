@@ -18,16 +18,58 @@ import 'package:comet_quiz_game_client/src/protocol/schemas/answer.dart' as _i7;
 import 'dart:io' as _i8;
 import 'protocol.dart' as _i9;
 
-class _EndpointExample extends _i1.EndpointRef {
-  _EndpointExample(_i1.EndpointCaller caller) : super(caller);
+class _EndpointMain extends _i1.EndpointRef {
+  _EndpointMain(_i1.EndpointCaller caller) : super(caller);
 
   @override
-  String get name => 'example';
+  String get name => 'main';
 
-  _i2.Future<String> hello(String name) => caller.callServerEndpoint<String>(
-        'example',
-        'hello',
-        {'name': name},
+  _i2.Future<_i3.Player> createPlayer(String username) =>
+      caller.callServerEndpoint<_i3.Player>(
+        'main',
+        'createPlayer',
+        {'username': username},
+      );
+
+  _i2.Future<_i4.Room> getQuestions(int roomId) =>
+      caller.callServerEndpoint<_i4.Room>(
+        'main',
+        'getQuestions',
+        {'roomId': roomId},
+      );
+
+  _i2.Future<List<_i5.PlayerScore>> getAllResults(int roomId) =>
+      caller.callServerEndpoint<List<_i5.PlayerScore>>(
+        'main',
+        'getAllResults',
+        {'roomId': roomId},
+      );
+}
+
+class _EndpointRegister extends _i1.EndpointRef {
+  _EndpointRegister(_i1.EndpointCaller caller) : super(caller);
+
+  @override
+  String get name => 'register';
+
+  _i2.Future<_i6.Question> createQuestion(
+    _i6.Question question,
+    List<_i7.Answer> answers,
+  ) =>
+      caller.callServerEndpoint<_i6.Question>(
+        'register',
+        'createQuestion',
+        {
+          'question': question,
+          'answers': answers,
+        },
+      );
+
+  _i2.Future<_i4.Room> createRoom(_i4.Room room) =>
+      caller.callServerEndpoint<_i4.Room>(
+        'register',
+        'createRoom',
+        {'room': room},
       );
 }
 
@@ -42,13 +84,20 @@ class Client extends _i1.ServerpodClient {
           context: context,
           authenticationKeyManager: authenticationKeyManager,
         ) {
-    example = _EndpointExample(this);
+    main = _EndpointMain(this);
+    register = _EndpointRegister(this);
   }
 
-  late final _EndpointExample example;
+  late final _EndpointMain main;
+
+  late final _EndpointRegister register;
 
   @override
-  Map<String, _i1.EndpointRef> get endpointRefLookup => {'example': example};
+  Map<String, _i1.EndpointRef> get endpointRefLookup => {
+        'main': main,
+        'register': register,
+      };
+
   @override
   Map<String, _i1.ModuleEndpointCaller> get moduleLookup => {};
 }
