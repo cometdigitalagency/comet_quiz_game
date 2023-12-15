@@ -24,7 +24,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_gen: ^5.3.2
   serverpod_flutter: ^1.1.1
+  flutter_svg: ^2.0.9
   comet_quiz_game_client:
     path: ../comet_quiz_game_client
 
@@ -34,9 +36,22 @@ dependencies:
   cupertino_icons: ^1.0.5
 
 dev_dependencies:
+  flutter_gen_runner: ^5.3.2
   flutter_lints: ^2.0.1
+  build_runner: ^2.4.7
   flutter_test:
     sdk: flutter
+
+flutter_gen:
+  output: lib/gen/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  # Optional
+  integrations:
+    flutter_svg: true
+    # flare_flutter: true
+    # rive: true
+    # lottie: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -48,10 +63,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -65,6 +78,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Axiforma
+      fonts:
+        - asset: assets/fonts/axiforma_regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
