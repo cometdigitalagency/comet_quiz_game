@@ -1,0 +1,4 @@
+class: PlayerScore
+fields:
+  username: String
+  score: int

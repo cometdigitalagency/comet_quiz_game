@@ -1,0 +1,6 @@
+enum: GameStatus
+values:
+  - question
+  - waiting
+  - answer
+  - finish

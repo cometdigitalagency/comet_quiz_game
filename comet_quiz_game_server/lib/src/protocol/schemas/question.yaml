@@ -1,0 +1,6 @@
+class: Question
+table: question
+fields:
+  text: String
+  roomId: int, parent=room
+  answers: List<Answer>?, api

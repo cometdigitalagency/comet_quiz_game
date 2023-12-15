@@ -7,32 +7,24 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:serverpod_client/serverpod_client.dart' as _i1;
+import '../protocol.dart' as _i2;
 
-class Example extends _i1.SerializableEntity {
-  Example({
-    required this.name,
-    required this.data,
-  });
+class StartGamePayload extends _i1.SerializableEntity {
+  StartGamePayload({required this.room});
 
-  factory Example.fromJson(
+  factory StartGamePayload.fromJson(
     Map<String, dynamic> jsonSerialization,
     _i1.SerializationManager serializationManager,
   ) {
-    return Example(
-      name: serializationManager.deserialize<String>(jsonSerialization['name']),
-      data: serializationManager.deserialize<int>(jsonSerialization['data']),
-    );
+    return StartGamePayload(
+        room: serializationManager
+            .deserialize<_i2.Room>(jsonSerialization['room']));
   }
 
-  String name;
-
-  int data;
+  _i2.Room room;
 
   @override
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'data': data,
-    };
+    return {'room': room};
   }
 }

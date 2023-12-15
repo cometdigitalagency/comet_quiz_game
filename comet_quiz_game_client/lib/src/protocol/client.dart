@@ -8,8 +8,15 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:serverpod_client/serverpod_client.dart' as _i1;
 import 'dart:async' as _i2;
-import 'dart:io' as _i3;
-import 'protocol.dart' as _i4;
+import 'package:comet_quiz_game_client/src/protocol/schemas/player.dart' as _i3;
+import 'package:comet_quiz_game_client/src/protocol/schemas/room.dart' as _i4;
+import 'package:comet_quiz_game_client/src/protocol/responses/player_score.dart'
+    as _i5;
+import 'package:comet_quiz_game_client/src/protocol/schemas/question.dart'
+    as _i6;
+import 'package:comet_quiz_game_client/src/protocol/schemas/answer.dart' as _i7;
+import 'dart:io' as _i8;
+import 'protocol.dart' as _i9;
 
 class _EndpointExample extends _i1.EndpointRef {
   _EndpointExample(_i1.EndpointCaller caller) : super(caller);
@@ -27,11 +34,11 @@ class _EndpointExample extends _i1.EndpointRef {
 class Client extends _i1.ServerpodClient {
   Client(
     String host, {
-    _i3.SecurityContext? context,
+    _i8.SecurityContext? context,
     _i1.AuthenticationKeyManager? authenticationKeyManager,
   }) : super(
           host,
-          _i4.Protocol(),
+          _i9.Protocol(),
           context: context,
           authenticationKeyManager: authenticationKeyManager,
         ) {

@@ -1,0 +1,6 @@
+class: Answer
+table: answer
+fields:
+  questionId: int?, parent=question
+  text: String
+  isCorrectOption: bool

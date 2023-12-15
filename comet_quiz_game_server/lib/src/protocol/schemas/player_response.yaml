@@ -1,0 +1,12 @@
+class: PlayerResponse
+
+table: player_response
+
+fields:
+  userId: int, parent=player
+  roomId: int, parent=room
+  questionId: int, parent=question
+  selectedAnswerId: int, parent=answer
+  selectedAt: int
+  isCorrectOption: bool?, api
+  user: String?, api

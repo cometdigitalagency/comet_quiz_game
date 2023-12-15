@@ -1,0 +1,7 @@
+class: AnswerPayload
+fields: 
+  answerId: int
+  roomId: int
+  questionId: int
+  playerId: int
+  selectedAt: int

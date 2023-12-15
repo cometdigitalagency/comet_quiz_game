@@ -1,0 +1,5 @@
+class: AnswerResponse
+fields: 
+  answerId: int
+  roomId: int
+  amount: double

@@ -1,0 +1,3 @@
+class: StartGamePayload
+fields: 
+  room: Room

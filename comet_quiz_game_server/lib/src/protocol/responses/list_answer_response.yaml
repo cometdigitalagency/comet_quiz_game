@@ -1,0 +1,4 @@
+class: ListAnswerResponse
+fields:
+  roomId: int
+  answers: List<AnswerResponse>

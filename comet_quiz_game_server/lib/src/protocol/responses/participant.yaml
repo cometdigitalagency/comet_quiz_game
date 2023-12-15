@@ -1,0 +1,4 @@
+class: Participant
+fields: 
+  roomId: int
+  participants: List<Player>

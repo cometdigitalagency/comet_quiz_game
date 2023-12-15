@@ -1,0 +1,8 @@
+class: GameResponse
+fields: 
+  roomId: int
+  status: GameStatus
+  time: int
+  question: Question?
+  participants: int
+  

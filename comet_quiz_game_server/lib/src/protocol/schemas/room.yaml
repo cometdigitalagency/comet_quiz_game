@@ -1,0 +1,8 @@
+class: Room
+table: room
+fields:
+  name: String
+  startDate: DateTime?
+  finishedDate: DateTime?
+  currentQuestion: int?, api
+  questions: List<Question>?, api

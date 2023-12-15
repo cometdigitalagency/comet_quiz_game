@@ -1,0 +1,3 @@
+exception: AppException
+fields:
+  message: String
